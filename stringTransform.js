@@ -4,8 +4,6 @@ function transformString(str) {
     let divisibleBy3 = (strLen % 3) === 0;
     let divisibleBy5 = (strLen % 5) === 0;
 
-    console.log(`strLen: ${strLen}, divisibleBy3: ${divisibleBy3}, divisibleBy5: ${divisibleBy5}`)
-
     if (!divisibleBy3 && !divisibleBy5) {
         return str;
     }
