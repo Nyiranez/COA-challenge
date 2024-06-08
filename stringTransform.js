@@ -1,35 +1,27 @@
-// Function that reverses the string
-function reverseString(string) {
-    return string.split('').reverse().join('');
-}
+function transformString(str) {
+    let transformedStr = str.split('');
+    let strLen = str.length;
+    let divisibleBy3 = (strLen % 3) === 0;
+    let divisibleBy5 = (strLen % 5) === 0;
 
+    console.log(`strLen: ${strLen}, divisibleBy3: ${divisibleBy3}, divisibleBy5: ${divisibleBy5}`)
 
-function convertToASCII(string) {
-    return string.split('').map(char => char.charCodeAt(0)).join(' ');
-}
-
-
-function transformString(string) {
-    const lengthString = string.length;
-
-   
-    if (lengthString % 3 === 0 && lengthString % 5 === 0) {
-       
-        string = reverseString(string);
-        string = convertToASCII(string);
-    } else if (lengthString % 3 === 0) {
-        
-        string = reverseString(string);
-    } else if (lengthString % 5 === 0) {
-       
-        string = convertToASCII(string);
+    if (!divisibleBy3 && !divisibleBy5) {
+        return str;
     }
 
-    
-    return string;
+    for (let i = 0; i < str.length; i++) {
+        // Divisible by 3 - reverse the entire string
+        if (divisibleBy3) {
+            transformedStr[i] = str.charAt(strLen - (1 + i));
+        }
+        // Divisible by 5 - replace each character with its ASCII code
+        if (divisibleBy5) {
+            transformedStr[i] = transformedStr[i].charCodeAt(0);
+        }
+    }
+
+    return transformedStr.join(" ");
 }
-
-const input = "Hello World";
-const output = transformString(input);
-
-console.log(output);
+let strInput = "Hello     World";
+console.log(transformString(strInput))

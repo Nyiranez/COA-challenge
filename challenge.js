@@ -8,7 +8,7 @@ containers.forEach(container => {
 
         image.classList.add("img-zoomed-in");
         overlay.classList.add("visible");
-        anchor.classList.remove("anchor");
+        anchor.classList.add("anchor-visible");
     });
 
     container.addEventListener("mouseout", function () {
@@ -19,7 +19,7 @@ containers.forEach(container => {
 
         image.classList.remove("img-zoomed-in");
         overlay.classList.remove("visible");
-        anchor.classList.add("anchor");
+        anchor.classList.remove("anchor-visible");
     });
 });
 
